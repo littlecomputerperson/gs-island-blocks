@@ -1,0 +1,10 @@
+[Game]
+IncreaseLevel=1
+PreviewDrop=1
+[Display]
+WindowMode=0
+EnableVSync=1
+UseParticles=1
+[Sound]
+MusicVolume=195
+EffectsVolume=255
