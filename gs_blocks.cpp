@@ -842,6 +842,7 @@ BOOL GS_Blocks::GameIntro()
         m_fAlpha = 0.0f;
         // Clear the keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Initialization completed.
         m_bIsInitialized = TRUE;
         // Return to prevent the time it took to initialize the game, which constitutes
@@ -1893,6 +1894,7 @@ BOOL GS_Blocks::ViewHiscore()
         m_nCounter = 0;
         // Clear the keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Initialization completed.
         m_bIsInitialized = TRUE;
     }
@@ -2028,7 +2030,7 @@ BOOL GS_Blocks::NewHiscore()
     if (m_bIsInitialized == FALSE)
     {
         // Initialize method variables.
-        m_bWasKeyReleased = FALSE;
+        m_bWasKeyReleased = TRUE;
         m_nScoreIndex = 0;
         nCharCount = 0;
         fInputRepeatFraction = 0.0f;
@@ -2048,6 +2050,7 @@ BOOL GS_Blocks::NewHiscore()
         m_gsSound.PlaySample(SAMPLE_GOOD_SCORE);
         // Clear the keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Initialization completed.
         m_bIsInitialized = TRUE;
     }
@@ -3977,6 +3980,7 @@ BOOL GS_Blocks::EndGame()
         m_nOptionSelected = -1;
         // Clear keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Fade colors for background image and game blocks.
         m_gsBackgroundSprite.SetModulateColor(0.25f, 0.25f, 0.25f, 1.0f);
         m_gsBlockSpriteEx.SetModulateColor(0.25f, 0.25f, 0.25f, 1.0f);
@@ -4167,6 +4171,7 @@ BOOL GS_Blocks::EndGame()
         m_gsBlockSpriteEx.SetModulateColor(1.0f, 1.0f, 1.0f, 1.0f);
         // Clear the keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Reset variables.
         m_bIsInitialized = FALSE;
     }
@@ -4180,6 +4185,7 @@ BOOL GS_Blocks::EndGame()
           m_bWasKeyReleased = FALSE;
           // Clear keyboard buffer.
           m_gsKeyboard.ClearBuffer();
+          m_gsController.ClearBuffer();        
           // Fade colors for background image and game blocks.
           m_gsBackgroundSprite.SetModulateColor(0.5f, 0.5f, 0.5f, 1.0f);
           m_gsBlockSpriteEx.SetModulateColor(0.5f, 0.5f, 0.5f, 1.0f);
@@ -4475,6 +4481,7 @@ BOOL GS_Blocks::QuitGame()
         m_fAlpha = 1.0f;
         // Clear the keyboard buffer.
         m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Is music playing?
         if (m_gsSound.IsMusicPlaying(MUSIC_TITLE))
         {
