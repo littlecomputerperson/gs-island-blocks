@@ -2048,7 +2048,7 @@ BOOL GS_Blocks::NewHiscore()
         lstrcpy(szTempString, "..........");
         // Play the appropriate sound.
         m_gsSound.PlaySample(SAMPLE_GOOD_SCORE);
-        // Clear the keyboard buffer.
+        // Clear the input buffers.
         m_gsKeyboard.ClearBuffer();
         m_gsController.ClearBuffer();
         // Initialization completed.
@@ -2354,6 +2354,9 @@ BOOL GS_Blocks::ModeSelect()
         // Initialize method variables.
         m_bWasKeyReleased = FALSE;
         m_nOptionSelected = -1;
+        // Clear input buffers.
+        m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Clear all current menu items.
         m_gsGameMenu.ClearOptions();
         // Set menu title.
@@ -2550,6 +2553,9 @@ BOOL GS_Blocks::LevelSelect()
         // Initialize method variables.
         m_bWasKeyReleased = FALSE;
         m_nOptionSelected = -1;
+        // Clear input buffers.
+        m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Clear all current menu items.
         m_gsGameMenu.ClearOptions();
         // Set menu title.
@@ -2704,6 +2710,9 @@ BOOL GS_Blocks::LevelSelect()
     {
         // Remember where we've come from.
         m_nOldGameProgress = LEVEL_SELECT;
+        // Clear input buffers.
+        m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Reset variables.
         m_bIsInitialized = FALSE;
     }
