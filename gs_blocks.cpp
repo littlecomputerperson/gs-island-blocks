@@ -2369,6 +2369,9 @@ BOOL GS_Blocks::ModeSelect()
             // Stop game music from playing.
             m_gsSound.StopMusic(MUSIC_TITLE);
         }
+        // Clear the keyboard buffer.
+        m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Initialization completed.
         m_bIsInitialized = TRUE;
     }
@@ -2573,6 +2576,9 @@ BOOL GS_Blocks::LevelSelect()
             // Stop game music from playing.
             m_gsSound.StopMusic(MUSIC_TITLE);
         }
+        // Clear the keyboard buffer.
+        m_gsKeyboard.ClearBuffer();
+        m_gsController.ClearBuffer();
         // Initialization completed.
         m_bIsInitialized = TRUE;
     }
@@ -2582,7 +2588,8 @@ BOOL GS_Blocks::LevelSelect()
     /////////////////////////////////////////////////////////////////////////////////////////////
 
     // Were all the keys in the key list released?
-    if (TRUE == m_gsKeyboard.AreKeysUp(4, KeyList))
+    if (TRUE == m_gsKeyboard.AreKeysUp(4, KeyList) && 
+        TRUE == m_gsController.AreButtonsUp(4, ButtonList))
     {
         m_bWasKeyReleased = TRUE;
     }
